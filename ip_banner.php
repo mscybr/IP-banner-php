@@ -3,8 +3,6 @@
     class ip_banner  
     {
         private $pdo;
-        private $default_message;
-        private $cb;
 
         /**
          * construct an ip_banner instance.
@@ -17,13 +15,13 @@
         }
         /**
      * This function preforms a check for whether to IP ban or not for repeated request attempts at sensitive areas.
-     * @param int additional variable to seperate attempts ( for example : 0 is for user login attempts, 1 is for admin login attempts ).
+     * @param int additional parameter to seperate attempts ( for example : 0 is for user login attempts, 1 is for admin login attempts ).
      * @param int maximum attempts before banning.
-     * @param int maximum duration for which the maximum attempts occur.
+     * @param int duration in minutes for which the maximum attempts occur.
      * @param int duration in minutes for which to ban the ip address.
      * @return boolean returns true if the ip should be banned and false otherwise.
      */
-        function track_request_attempts( $attempts_seperation=0, $max_attempts = 10, $check_duration = 10, $ban_duration = 1){
+        function track_request_attempts( $attempts_seperation=0, $max_attempts = 10, $check_duration = 10, $ban_duration = 10){
             // TODO: preform table cleaning for attempts that are $duration * 2 old and clean ban list as well fire this request before starting the check
             // creating tables if they don't exsist
             $pdo = $this->pdo;
