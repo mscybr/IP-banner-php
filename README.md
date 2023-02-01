@@ -1,5 +1,5 @@
 # IP-banner-php
-a simple PHP IP banner class
+a simple PHP IP banner class for repeated requests at sensitive areas. 
 
 
 
